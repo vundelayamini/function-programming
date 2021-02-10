@@ -1,6 +1,6 @@
 function myFunc() {
      degC=0-100
-      degF=32=212
+      degF=32-212
       echo $result
 
 		if [ $degC -ge 1 -a $degC -le 100 ]
