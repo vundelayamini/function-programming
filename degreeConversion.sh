@@ -1,4 +1,7 @@
 function myFunc() {
+     degC=0-100
+      degF=32=212
+      echo $result
 
 		if [ $degC -ge 1 -a $degC -le 100 ]
 		then
@@ -16,9 +19,6 @@ function myFunc() {
             echo "enter temp Range in 32-212 degree Faranheite"
       fi
 }
-    degC=0-100
-    degF=32-212
-    echo $result
 case $result in
    1)
 		 read -p "enter the Value of Celsius :" degC
