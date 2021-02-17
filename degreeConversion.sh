@@ -1,37 +1,33 @@
-function myFunc() {
-     degC=0-100
-      degF=32-212
-      echo $result
+#!/bin/bash -x 
 
+function farhenite() {
 		if [ $degC -ge 1 -a $degC -le 100 ]
 		then
-				degF=$((9*($degC+32));
+				degF=$((($degC*9/5)+32));
 		else
-				echo "enter temp  Range in 0-100 degree Celsius"
+				echo "Enter Temp in Range 0-100 degree Celsius"
 		fi
 }
 
-function myFunc() {
+function celsius() {
       if [ $degF -ge 32 -a $degF -le 212 ]
       then
-            degC=$(( 5/9*($degF-32) ));
+            degC=$((($degF-32)*5/9));
       else
-            echo "enter temp Range in 32-212 degree Faranheite"
+            echo "Enter Temp in Range 32-212 degree Farhenite"
       fi
 }
-case $result in
+
+	read -p "1- Celsius to Farhenite\n 2- Farhenite to Celsius" choise
+
+case $choise in
    1)
-		 read -p "enter the Value of Celsius :" degC
-             degF=$(9*(degC+32))
-            $(( faranheit))
-              ;;
+		 read -p "Pass Value in Celsius :" degC
+         $( farhenite )
+         ;;
    2)
-	    read -p " enter the value of Faranheite :" degF
-               degC=$(5/9*(degF-32))
-               $(( celsius ))
-              ;;
-      echo "worng result re enter:"
-              ;;
-      *)
+	    read -p "Pass Value in Farhenite :" degF
+         $( celsius )
+         ;;
+	*)
 esac
-echo "to convert the degc to degF/degF to degC:"
