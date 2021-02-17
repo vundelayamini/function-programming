@@ -1,42 +1,51 @@
 #!/bin/bash -x
 
-   echo "enter the number"
-     read n
-funcion palindrome(){
-      number=$n
-       rverse=0
-    while [ $n -gt 0 ]
-      do
-         a=`expr $n % 10`
-          n=`expr $n / 10`
-           reverse=`expr $reverse \* 10 +$a`
+palindromeNumber(){
+        local number=$PrimeNum
+        local reverse=0
+        while [ $PrimeNum -gt 0 ]
+        do
+                a=`expr $PrimeNum % 10 `
+                PrimeNum=`expr $PrimeNum / 10 `
+                reverse=`expr $reverse \* 10 + $a`
         done
-       echo $reverse
-     if [ $number -eq $reverse ]
-       then
-            echo "number is palindrome"
-     else
-           echo "palindrome number is also prime number" 
-     fi
+        echo $reverse
+        if [ $number -eq $reverse ]
+        then
+                echo Number $n is a prime and its Palindrome is also Prime
+        elif [ $number -ne $reverse -a $number -gt 0 ]
+        then
+		echo Number $n is a Prime but its Palindrome is not a Prime
+	else
+		echo Number is Not a Prime Number
+        fi
 }
-r=`palindrome $n `
-echo "$r"
 
-function primenumber() {
-  echo "enter the number "
-     read num
-   for(( i=2; i<=num/2; i++ ))
-     do
-         if [ $((num%i)) -eq 0 ]
-   then
-        echo "$num is not a prime number"
-    exit
-fi
+
+function primeNumber() {
+number1=0
+for (( num=1; num<=$n; num++ ))
+do
+	if [ $(($n%$num)) -eq 0 ]
+	then
+		((number1++))
+	fi
 done
-echo "$num is a prime number"
+
+if [ $number1 -eq 2 ]
+then
+	echo $n
+else
+	echo -1
+fi
+
 }
-r=`prime $number
-echo "$r"
+
+read -p "Enter Number To Check Prime of Not :" n
+
+PrimeNum=$( primeNumber $n )
+
+PalindromeNum=$( palindromeNumber $PrimeNum )
 
 
 
